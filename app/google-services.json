@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "859495401096",
+    "firebase_url": "https://note-c1ad1-default-rtdb.firebaseio.com",
+    "project_id": "note-c1ad1",
+    "storage_bucket": "note-c1ad1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859495401096:android:6aa4fc01b82402ed0fc13d",
+        "android_client_info": {
+          "package_name": "com.example.note"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvcqezsaYo_9twtSUs7DSi4wdgGAg_I3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
