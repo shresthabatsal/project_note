@@ -3,7 +3,10 @@ package com.example.note.repository
 import com.example.note.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class UserRepositoryImpl : UserRepository {
 
@@ -58,5 +61,29 @@ class UserRepositoryImpl : UserRepository {
 
     override fun getCurrentUser(): FirebaseUser? {
         return auth.currentUser
+    }
+
+    override fun logout() {
+        auth.signOut()
+    }
+
+    override fun getUserData(
+        userId: String,
+        callback: (User?, Boolean, String) -> Unit
+    ) {
+        database.child("users").child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val user = snapshot.getValue(User::class.java)
+                    callback(user, true, "User data fetched successfully")
+                } else {
+                    callback(null, false, "User data not found")
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                callback(null, false, error.message)
+            }
+        })
     }
 }

@@ -8,4 +8,6 @@ interface UserRepository {
     fun saveUserData(userId: String, user: User, callback: (Boolean, String) -> Unit)
     fun login(email: String, password: String, callback: (Boolean, String) -> Unit)
     fun getCurrentUser(): FirebaseUser?
+    fun logout()
+    fun getUserData(userId: String, callback: (User?, Boolean, String) -> Unit)
 }
