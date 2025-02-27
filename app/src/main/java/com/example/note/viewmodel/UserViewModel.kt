@@ -22,5 +22,13 @@ class UserViewModel(private val repo: UserRepository) : ViewModel() {
         repo.saveUserData(userId, user, callback)
     }
 
+    fun login(
+        email: String,
+        password: String,
+        callback: (Boolean, String) -> Unit
+    ) {
+        repo.login(email, password, callback)
+    }
+
     fun getCurrentUser() = repo.getCurrentUser()
 }
