@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.note.R
 import com.example.note.databinding.FragmentHomeBinding
 import com.example.note.ui.activity.AddNoteActivity
+import com.example.note.ui.adapter.NoteAdapter
 import com.example.note.viewmodel.NoteViewModel
 
 class HomeFragment : Fragment() {
@@ -47,11 +48,11 @@ class HomeFragment : Fragment() {
         }
 
         // Observe notes
-//        noteViewModel.notes.observe(viewLifecycleOwner) { notes ->
-//            // Update RecyclerView or UI with the notes
-//            val adapter = NoteAdapter(notes) // Replace with your adapter
-//            binding.recyclerViewNotes.layoutManager = LinearLayoutManager(requireContext())
-//            binding.recyclerViewNotes.adapter = adapter
-//        }
+        noteViewModel.notes.observe(viewLifecycleOwner) { notes ->
+            // Update RecyclerView or UI with the notes
+            val adapter = NoteAdapter(notes)
+            binding.recyclerViewNotes.layoutManager = LinearLayoutManager(requireContext())
+            binding.recyclerViewNotes.adapter = adapter
+        }
     }
 }
