@@ -20,11 +20,17 @@ class NoteViewModel : ViewModel() {
     }
 
     fun saveNote(note: Note, callback: (Boolean, String) -> Unit) {
-        noteRepository.saveNote(note, callback)
+        noteRepository.saveNote(note) { success, message ->
+            if (success) {
+                // Refresh the notes list after saving
+                getNotes(note.userId)
+            }
+            callback(success, message)
+        }
     }
 
     fun getNotes(userId: String) {
-        noteRepository.getNotes(userId) { notes, success, message ->
+        noteRepository.getNotes(userId) { notes, success, _ ->
             if (success && notes != null) {
                 _notes.value = notes
             }
@@ -32,10 +38,22 @@ class NoteViewModel : ViewModel() {
     }
 
     fun updateNote(note: Note, callback: (Boolean, String) -> Unit) {
-        noteRepository.updateNote(note, callback)
+        noteRepository.updateNote(note) { success, message ->
+            if (success) {
+                // Refresh the notes list after updating
+                getNotes(note.userId)
+            }
+            callback(success, message)
+        }
     }
 
     fun deleteNote(noteId: String, userId: String, callback: (Boolean, String) -> Unit) {
-        noteRepository.deleteNote(noteId, userId, callback)
+        noteRepository.deleteNote(noteId, userId) { success, message ->
+            if (success) {
+                // Refresh the notes list after deleting
+                getNotes(userId)
+            }
+            callback(success, message)
+        }
     }
 }
