@@ -14,28 +14,30 @@
         android:layout_height="wrap_content">
 
         <!-- Logo Image -->
-        <ImageView
-            android:id="@+id/logoImageView"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="144dp"
-            android:layout_marginTop="152dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background" />
 
         <!-- Login Text -->
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/note" />
+
         <TextView
             android:id="@+id/loginTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="25dp"
             android:text="Login"
-            android:textStyle="bold"
             android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
         <!-- Email Input -->
         <com.google.android.material.textfield.TextInputLayout
@@ -82,7 +84,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="31dp"
-            android:layout_marginTop="15dp"
             android:text="Remember me"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout" />
@@ -95,7 +96,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="31dp"
-            android:background="@drawable/ic_launcher_background"
+            android:background="@color/note_blue"
             android:text="Log in"
             android:textStyle="bold"
             android:textColor="@color/white"
@@ -106,7 +107,7 @@
         <!-- Create Account Text -->
         <TextView
             android:id="@+id/createAccountTextView"
-            android:layout_width="180dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="31dp"
             android:layout_marginTop="20dp"
@@ -135,12 +136,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="146dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="95dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="85dp"
             android:text="Forgot Password?"
-            android:textStyle="italic"
             android:textColor="@color/black"
             android:textFontWeight="600"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/rememberMeCheckBox"
             app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout" />

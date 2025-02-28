@@ -39,7 +39,7 @@ class SignupActivity : AppCompatActivity() {
                         userViewModel.saveUserData(userId, user) { saveSuccess, saveMessage ->
                             if (saveSuccess) {
                                 Toast.makeText(this, "Signup Successful", Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, MainActivity::class.java))
+                                startActivity(Intent(this, LoginActivity::class.java))
                                 finish()
                             } else {
                                 Toast.makeText(this, saveMessage, Toast.LENGTH_SHORT).show()
@@ -53,7 +53,7 @@ class SignupActivity : AppCompatActivity() {
         }
 
         binding.loginTextView.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }
