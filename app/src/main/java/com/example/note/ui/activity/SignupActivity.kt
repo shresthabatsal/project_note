@@ -22,9 +22,8 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize repository and view model
-        val repo = UserRepositoryImpl()
-        userViewModel = UserViewModel(repo)
+        // Initialize view model
+        userViewModel = UserViewModel()
 
         binding.signupButton.setOnClickListener {
             val fullName = binding.fullNameEditText.text.toString().trim()

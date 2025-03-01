@@ -86,4 +86,15 @@ class UserRepositoryImpl : UserRepository {
             }
         })
     }
+
+    override fun sendPasswordResetEmail(email: String, callback: (Boolean, String) -> Unit) {
+        auth.sendPasswordResetEmail(email)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    callback(true, "Password reset email sent")
+                } else {
+                    callback(false, task.exception?.message ?: "Failed to send password reset email")
+                }
+            }
+    }
 }

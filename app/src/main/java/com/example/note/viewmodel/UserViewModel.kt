@@ -5,8 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.note.model.User
 import com.example.note.repository.UserRepository
+import com.example.note.repository.UserRepositoryImpl
 
-class UserViewModel(private val repo: UserRepository) : ViewModel() {
+class UserViewModel() : ViewModel() {
+    private val repo: UserRepository = UserRepositoryImpl();
 
     private val _userData = MutableLiveData<User?>()
     val userData: LiveData<User?> get() = _userData
@@ -49,5 +51,9 @@ class UserViewModel(private val repo: UserRepository) : ViewModel() {
                 _userData.value = null
             }
         }
+    }
+
+    fun sendPasswordResetEmail(email: String, callback: (Boolean, String) -> Unit) {
+        repo.sendPasswordResetEmail(email, callback)
     }
 }

@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:padding="16dp">
 
     <!-- Title Input -->
@@ -36,16 +37,17 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextContent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="Content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Back Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
+        android:background="@drawable/custom_button"
         android:backgroundTint="@color/black"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,12 +56,12 @@
         android:layout_marginStart="16dp" />
 
     <!-- Add Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
-        android:backgroundTint="@color/black"
+        android:background="@drawable/custom_button"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

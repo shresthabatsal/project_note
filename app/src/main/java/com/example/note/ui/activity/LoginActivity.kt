@@ -22,8 +22,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Initialize repository and view model
-        val repo = UserRepositoryImpl()
-        userViewModel = UserViewModel(repo)
+        userViewModel = UserViewModel()
 
         // Set up click listeners
         binding.loginButton.setOnClickListener {
@@ -51,6 +50,10 @@ class LoginActivity : AppCompatActivity() {
         binding.forgotPasswordTextView.setOnClickListener {
             // Handle forgot password logic here
             Toast.makeText(this, "Forgot Password clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.forgotPasswordTextView.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
     }
 

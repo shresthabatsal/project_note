@@ -10,4 +10,5 @@ interface UserRepository {
     fun getCurrentUser(): FirebaseUser?
     fun logout()
     fun getUserData(userId: String, callback: (User?, Boolean, String) -> Unit)
+    fun sendPasswordResetEmail(email: String, callback: (Boolean, String) -> Unit) // New method
 }
